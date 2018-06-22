@@ -8,7 +8,7 @@ public class Test {
 
 	public static void main(String[] args)
 	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/Users/JARVIS/Downloads/Selenium/chromedriver");
 		WebDriver driver = new  ChromeDriver();
 		driver.get("https://www.youtube.com");
 		driver.findElement(By.id("search")).sendKeys("eminem");

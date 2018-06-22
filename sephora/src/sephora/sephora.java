@@ -10,7 +10,7 @@ public class sephora {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/Users/JARVIS/Documents/Selenium/chromedriver");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://sephora.nnnow.com/");
 		driver.findElement(By.xpath("/html/body/div[2]/div[1]/header/div[2]/div/div[4]/a[2]/span")).click();
