@@ -23,8 +23,9 @@ public class Main {
         Thread.sleep(2000);
 
         driver.get("https://shop.eminem.com/3906749/checkouts/7874b9af578566db7bfbbb239b593c11?_ga=2.61686117.838703006.1529651526-399508525.1529651526");
-        driver.findElement(By.name("checkout[email]")).sendKeys("rhymezboy@gmail.com");
+        driver.findElement(By.name("checkout[email]")).sendKeys("rhymezboy@yahoo.com");
         //driver.findElement(By.name("checkout[buyer_accepts_marketing]")).click();
+
         driver.findElement(By.name("checkout[shipping_address][first_name]")).sendKeys("Marshall");
         driver.findElement(By.name("checkout[shipping_address][last_name]")).sendKeys("Mathers");
         driver.findElement(By.name("checkout[shipping_address][address1]")).sendKeys("addresss1");
