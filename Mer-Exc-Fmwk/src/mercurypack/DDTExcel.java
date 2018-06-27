@@ -1,8 +1,15 @@
 package mercurypack;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class DDTExcel {
 
@@ -12,13 +19,22 @@ public class DDTExcel {
 	public void DemoProject(String username, String password) throws InterruptedException
 
 	{
-		System.setProperty("webdriver.chrome.driver", "/Users/JARVIS/Downloads/Selenium/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Downloads\\Selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.get("http://newtours.demoaut.com/");
-	
-		driver.findElement(By.name("userName")).sendKeys(username);
-		driver.findElement(By.name("password")).sendKeys(password);
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+
+        WebElement abc = driver.findElement(By.name("userName"));
+
+        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 5px solid blue;')", abc);
+		
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        driver.findElement(By.name("userName")).sendKeys(username);
+		
+        driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name("login")).click();
 		
 		Thread.sleep(1000);
