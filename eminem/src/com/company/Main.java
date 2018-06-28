@@ -13,19 +13,19 @@ public class Main {
 
         System.setProperty("webdriver.chrome.driver", "/Users/JARVIS/Downloads/selenium/chromedriver");
         WebDriver driver=new ChromeDriver();
-        /*driver.get("https://shop.eminem.com/");
+        driver.get("https://shop.eminem.com/");
 
-        //driver.manage().window().maximize();
+        driver.manage().window().fullscreen();;
 
         driver.findElement(By.xpath("//*[@id=\"AccessibleNav\"]/li[4]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"PageContainer\"]/main/section/div/div/div[6]/div/a")).click();
         driver.findElement(By.xpath("//*[@id=\"productSelect-option-0\"]/li[6]")).click();
         driver.findElement(By.name("add")).click();
-        Thread.sleep(2000);*/
+        Thread.sleep(2000);
 
         driver.get("https://shop.eminem.com/3906749/checkouts/7874b9af578566db7bfbbb239b593c11?_ga=2.61686117.838703006.1529651526-399508525.1529651526");
         driver.findElement(By.name("checkout[email]")).sendKeys("rhymezboy@gmail.com");
-        //driver.findElement(By.name("checkout[buyer_accepts_marketing]")).click();
+        driver.findElement(By.name("checkout[buyer_accepts_marketing]")).click();
         JavascriptExecutor js=(JavascriptExecutor)driver;
 
         WebElement username = driver.findElement(By.name("checkout[shipping_address][first_name]"));
@@ -50,6 +50,8 @@ public class Main {
         //Final
         driver.findElement(By.name("checkout[shipping_address][zip]")).sendKeys("48201");
         driver.findElement(By.name("checkout[shipping_address][phone]")).sendKeys("833-243-8738");
-
+        
+        Thread.sleep(5000);
+        driver.close();
     }
 }
