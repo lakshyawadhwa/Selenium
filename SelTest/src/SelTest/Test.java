@@ -1,27 +1,42 @@
 package SelTest;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class Test {
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/Users/JARVIS/Downloads/Selenium/chromedriver");
 		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().fullscreen();
+
 		driver.get("https://www.youtube.com");
-		
-		JavascriptExecutor js=(JavascriptExecutor)driver;
+
+
+		/*JavascriptExecutor js=(JavascriptExecutor)driver;
 
         WebElement abc = driver.findElement(By.id("search"));
 
-        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 5px solid blue;')", abc);
+        js.executeScript("arguments[0].setAttribute('style', 'background: red; border: 3px solid green;')", abc);*/
 		
-		driver.findElement(By.id("search")).sendKeys("eminem");
-		driver.findElement(By.id("search-icon-legacy")).click();
-		driver.findElement(By.partialLinkText("Caterpillar ft. Eminem, King Green")).click();
+		driver.findElement(By.id("search")).sendKeys("infinity war");
+        driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
+		
+		//driver.findElement(By.xpath(" //*[@id=\"search-icon-legacy\"]/yt-icon")).click();
+
+        Thread.sleep(4000);
+
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+
+        WebElement abcd = driver.findElement(By.partialLinkText("Official Trailer"));
+
+        js.executeScript("arguments[0].setAttribute('style', 'background: red; border: 3px solid black;')", abcd);
+
+        driver.findElement(By.partialLinkText("Official Trailer")).click();
+
+        Thread.sleep(20000);
+        driver.close();
 			}
 }
